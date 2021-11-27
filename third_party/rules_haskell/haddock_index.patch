@@ -2,7 +2,7 @@ diff --git a/haskell/haddock.bzl b/haskell/haddock.bzl
 index cec97792..d0ad7033 100644
 --- a/haskell/haddock.bzl
 +++ b/haskell/haddock.bzl
-@@ -278,19 +278,24 @@ def _haskell_doc_rule_impl(ctx):
+@@ -278,19 +278,23 @@ def _haskell_doc_rule_impl(ctx):
          )
  
      # Do one more Haddock call to generate the unified index
@@ -16,7 +16,6 @@ index cec97792..d0ad7033 100644
          "-o",
          index_root.path,
          "--title={0}".format(ctx.attr.name),
-+        "--no-warnings",
 -        "--gen-index",
 -        "--gen-contents",
      ])

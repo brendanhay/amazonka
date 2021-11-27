@@ -1,24 +1,12 @@
--- Module      : Gen.JSON
--- Copyright   : (c) 2013-2021 Brendan Hay
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
--- Stability   : provisional
--- Portability : non-portable (GHC extensions)
-
 module Gen.JSON where
 
-import Control.Error
-import Control.Monad.Except
-import Data.Aeson hiding (decode)
-import Data.Aeson.Types
-import Data.ByteString (ByteString)
-import qualified Data.ByteString.Lazy as LBS
-import qualified Data.HashMap.Strict as Map
-import Data.List
+import qualified Data.Aeson as Aeson
+import Data.Aeson.Types (Object, Value (..))
+import qualified Data.Aeson.Types as Aeson.Types
+import qualified Data.ByteString.Lazy as ByteString.Lazy
+import qualified Data.HashMap.Strict as HashMap
 import Gen.IO
+import Gen.Prelude
 import qualified Text.EDE as EDE
 import qualified UnliftIO
 import qualified UnliftIO.Directory as UnliftIO
@@ -40,19 +28,19 @@ optional path = do
 objectErr :: ToJSON a => String -> a -> Either String Object
 objectErr n x =
   note ("Failed to extract JSON object from value " ++ n) $
-    EDE.fromValue (toJSON x)
+    EDE.fromValue (Aeson.toJSON x)
 
 decode :: ByteString -> Either String Object
-decode = eitherDecode' . LBS.fromStrict
+decode = Aeson.eitherDecode' . ByteString.Lazy.fromStrict
 
 parse :: FromJSON a => Object -> Either String a
-parse = parseEither parseJSON . Object
+parse = Aeson.Types.parseEither Aeson.parseJSON . Object
 
 merge :: [Object] -> Object
-merge = foldl' go mempty
+merge = foldr go mempty
   where
     go :: Object -> Object -> Object
-    go = Map.unionWith value
+    go = HashMap.unionWith value
 
     value :: Value -> Value -> Value
     value l r =

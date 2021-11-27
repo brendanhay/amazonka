@@ -1,18 +1,9 @@
--- Module      : Gen.Import
--- Copyright   : (c) 2013-2021 Brendan Hay
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
--- Stability   : provisional
--- Portability : non-portable (GHC extensions)
-
 module Gen.Import where
 
-import Control.Lens
-import Data.List (sort)
+import qualified Control.Lens as Lens
+import qualified Data.List as List
 import qualified Data.Set as Set
+import Gen.Prelude
 import Gen.Types
 
 operationImports :: Library -> Operation Identity SData a -> [NS]
@@ -28,7 +19,7 @@ operationImports l _o =
 
 typeImports :: Library -> [NS]
 typeImports l =
-  sort $
+  List.sort $
     "qualified Amazonka.Lens as Lens" :
     "qualified Amazonka.Core as Core" :
     "qualified Amazonka.Prelude as Prelude" :
@@ -41,14 +32,14 @@ lensImports l =
 
 sumImports :: Library -> [NS]
 sumImports l =
-  sort $
+  List.sort $
     "qualified Amazonka.Core as Core" :
     "qualified Amazonka.Prelude as Prelude" :
     l ^. typeModules
 
 productImports :: Library -> Prod -> [NS]
 productImports l p =
-  sort $
+  List.sort $
     "qualified Amazonka.Lens as Lens" :
     "qualified Amazonka.Core as Core" :
     "qualified Amazonka.Prelude as Prelude" :
@@ -65,17 +56,17 @@ productDependencies l p =
 moduleShapes :: Library -> Set.Set NS
 moduleShapes l =
   Set.fromList $
-    map (mkNS . typeId . identifier) (l ^.. shapes . each)
+    map (mkNS . typeId . identifier) (l ^.. shapes . Lens.each)
 
 waiterImports :: Library -> [NS]
 waiterImports l =
-  sort $
+  List.sort $
     "qualified Amazonka.Lens as Lens" :
     "qualified Amazonka.Core as Core" :
     "qualified Amazonka.Prelude as Prelude" :
     l ^. typesNS :
     l ^. lensNS :
-    map (operationNS ns . _waitOpName) (l ^.. waiters . each)
+    map (operationNS ns . _waitOpName) (l ^.. waiters . Lens.each)
   where
     ns = l ^. libraryNS
 

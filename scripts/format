@@ -8,6 +8,7 @@ set -euo pipefail
 
 cd "$(dirname "${BASH_SOURCE[0]}")"
 
+./format-bazel
 ./format-haskell
 ./format-nix
 ./format-shell

@@ -1,13 +1,3 @@
--- Module      : Gen.Text
--- Copyright   : (c) 2013-2021 Brendan Hay
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
--- Stability   : provisional
--- Portability : non-portable (GHC extensions)
-
 module Gen.Text
   ( stripLens,
     stripTilUpper,
@@ -26,13 +16,10 @@ module Gen.Text
   )
 where
 
-import Control.Error
-import Control.Monad
-import Data.Bifunctor
 import qualified Data.Char as Char
-import qualified Data.HashSet as Set
-import Data.Text (Text)
+import qualified Data.HashSet as HashSet
 import qualified Data.Text as Text
+import Gen.Prelude
 
 stripLens :: Text -> Text
 stripLens t
@@ -75,11 +62,11 @@ renameBranch = first go . join (,)
 renameReserved :: Text -> Text
 renameReserved x
   | Text.isPrefixOf "new" x = x <> "'"
-  | Set.member x xs = x <> "'"
+  | HashSet.member x xs = x <> "'"
   | otherwise = x
   where
     xs =
-      Set.fromList $
+      fromList
         [ "Service",
           "Status",
           "ccall",

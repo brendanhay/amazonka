@@ -1,63 +1,49 @@
 {-# LANGUAGE TemplateHaskell #-}
 
--- Module      : Gen.AST.Prefix
--- Copyright   : (c) 2013-2021 Brendan Hay
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
--- Stability   : provisional
--- Portability : non-portable (GHC extensions)
-
 module Gen.AST.Prefix
   ( prefixes,
   )
 where
 
-import Control.Comonad.Cofree
-import Control.Lens hiding ((:<))
-import Control.Monad.Except
-import Control.Monad.State
-import Data.CaseInsensitive (CI)
+import qualified Control.Lens as Lens
+import qualified Control.Monad.Except as Except
+import qualified Control.Monad.State.Strict as State
 import qualified Data.CaseInsensitive as CI
-import Data.Char (isLower)
-import qualified Data.HashMap.Strict as Map
-import qualified Data.HashSet as Set
-import Data.Hashable
-import Data.Maybe
-import Data.Text (Text)
+import qualified Data.Char as Char
+import qualified Data.HashMap.Strict as HashMap
+import qualified Data.HashSet as HashSet
 import qualified Data.Text as Text
 import Gen.AST.Cofree
+import Gen.Prelude
 import Gen.Text
 import Gen.Types
 
-type Seen = Map (CI Text) (Set (CI Text))
+type Seen = HashMap (CI Text) (HashSet (CI Text))
 
 data Env = Env
-  { _memo :: Map Id (Maybe Text),
+  { _memo :: HashMap Id (Maybe Text),
     _branches :: Seen,
     _fields :: Seen
   }
 
-makeLenses ''Env
+$(Lens.makeLenses ''Env)
 
 type MemoP = StateT Env (Either String)
 
-prefixes :: Map Id (Shape Related) -> Either String (Map Id (Shape Prefixed))
-prefixes ss = evalStateT (traverse assignPrefix ss) env
+prefixes :: HashMap Id (Shape Related) -> Either String (HashMap Id (Shape Prefixed))
+prefixes ss = State.evalStateT (traverse assignPrefix ss) env
   where
     env = Env mempty mempty (smartCtors ss)
 
 -- | Record projected smart constructors in set of seen field names.
-smartCtors :: Map Id (Shape a) -> Seen
-smartCtors = Map.fromListWith (<>) . mapMaybe go . Map.toList
+smartCtors :: HashMap Id (Shape a) -> Seen
+smartCtors = HashMap.fromListWith (<>) . mapMaybe go . HashMap.toList
   where
-    go :: (Id, Shape a) -> Maybe (CI Text, Set (CI Text))
-    go (s, _ :< Struct {}) = Just (k, Set.singleton v)
+    go :: (Id, Shape a) -> Maybe (CI Text, HashSet (CI Text))
+    go (s, _ :< Struct {}) = Just (k, HashSet.singleton v)
       where
         n = smartCtorId s
-        k = CI.mk (Text.takeWhile isLower n)
+        k = CI.mk (Text.takeWhile Char.isLower n)
         v = CI.mk (stripTilUpper n)
     go _ = Nothing
 
@@ -86,23 +72,24 @@ assignPrefix = annotate Prefixed memo go
       Lens' Env Seen ->
       Text ->
       [CI Text] ->
-      Set (CI Text) ->
+      HashSet (CI Text) ->
       MemoP Text
     unique r seen n [] ks = do
-      s <- use seen
+      s <- Lens.use seen
 
       let line x =
             "\n" ++ Text.unpack (CI.original x)
               ++ " => "
-              ++ show (Map.lookup x s)
+              ++ show (HashMap.lookup x s)
 
-      throwError $
+      Except.throwError $
         "Error prefixing: " ++ Text.unpack n
           ++ ", fields: "
-          ++ show (Set.toList ks)
+          ++ show (HashSet.toList ks)
           ++ concatMap line (acronymPrefixes r n)
+    --
     unique r seen n (h : hs) ks = do
-      m <- uses seen (Map.lookup h)
+      m <- Lens.uses seen (HashMap.lookup h)
       -- Find if this particular naming heuristic is used already, and if
       -- it is, then is there overlap with this set of ks?
       case m of
@@ -110,14 +97,14 @@ assignPrefix = annotate Prefixed memo go
           | overlap ys ks ->
             unique r seen n hs ks
         _ -> do
-          seen %= Map.insertWith (<>) h ks
+          seen %= HashMap.insertWith (<>) h ks
           return (CI.original h)
 
-overlap :: (Eq a, Hashable a) => Set a -> Set a -> Bool
-overlap xs ys = not . Set.null $ Set.intersection xs ys
+overlap :: (Eq a, Hashable a) => HashSet a -> HashSet a -> Bool
+overlap xs ys = not . HashSet.null $ HashSet.intersection xs ys
 
-keys :: Map Id a -> Set (CI Text)
-keys = Set.fromList . map (CI.mk . typeId) . Map.keys
+keys :: HashMap Id a -> HashSet (CI Text)
+keys = HashSet.fromList . map (CI.mk . typeId) . HashMap.keys
 
 acronymPrefixes :: Relation -> Text -> [CI Text]
 acronymPrefixes _relation name = [CI.mk (upperHead name)]

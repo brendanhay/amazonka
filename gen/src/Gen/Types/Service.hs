@@ -1,48 +1,29 @@
 {-# LANGUAGE TemplateHaskell #-}
 
--- Module      : Gen.Types.Service
--- Copyright   : (c) 2013-2021 Brendan Hay
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla xtPublic License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>44
--- Stability   : provisional
--- Portability : non-portable (GHC extensions)
-
 module Gen.Types.Service where
 
-import Control.Applicative ((<|>))
-import Control.Comonad
-import Control.Comonad.Cofree
-import Control.Lens ((%~), (&), (.~), (<&>), (?~), (^.))
+import qualified Control.Comonad as Comonad
+import qualified Control.Comonad.Cofree as Cofree
 import qualified Control.Lens as Lens
-import qualified Control.Lens.TH as TH
-import Data.Aeson (FromJSON, ToJSON, (.!=), (.:), (.:?), (.=))
-import qualified Data.Aeson as JSON
-import Data.Bifunctor (first)
-import Data.Functor.Identity (Identity)
-import qualified Data.HashMap.Strict as Map
-import Data.List (nub)
-import Data.Maybe (isJust)
-import Data.Scientific (Scientific)
-import Data.Text (Text)
+import Data.Aeson ((.!=), (.:), (.:?), (.=))
+import qualified Data.Aeson as Aeson
+import qualified Data.HashMap.Strict as HashMap
+import qualified Data.List as List
 import qualified Data.Text as Text
-import GHC.Generics (Generic)
+import Gen.Prelude
 import Gen.TH
 import Gen.Text
 import Gen.Types.Ann
 import Gen.Types.Help
 import Gen.Types.Id
-import Gen.Types.Map
 import Gen.Types.NS
 import Gen.Types.Pager
 import Gen.Types.Retry
 import Gen.Types.URI
 import Gen.Types.Waiter
-import qualified Text.Show.Deriving as TH (deriveShow, deriveShow1)
+import qualified Text.Show.Deriving as Deriving
 
-$(TH.makePrisms ''Identity)
+$(Lens.makePrisms ''Identity)
 
 data Signature
   = V2
@@ -53,14 +34,15 @@ data Signature
   deriving (Eq, Show, Generic)
 
 sigToText :: Signature -> Text
-sigToText V2 = "v2"
-sigToText _ = "v4"
+sigToText = \case
+  V2 -> "v2"
+  _ -> "v4"
 
 instance FromJSON Signature where
   parseJSON = gParseJSON' lower
 
 instance ToJSON Signature where
-  toJSON = JSON.String . sigToText
+  toJSON = Aeson.String . sigToText
 
 data Timestamp
   = RFC822
@@ -72,14 +54,14 @@ tsToText :: Timestamp -> Text
 tsToText = Text.pack . show
 
 instance FromJSON Timestamp where
-  parseJSON = JSON.withText "timestamp" $ \case
+  parseJSON = Aeson.withText "timestamp" $ \case
     "rfc822" -> pure RFC822
     "iso8601" -> pure ISO8601
     "unixTimestamp" -> pure POSIX
     e -> fail ("Unknown Timestamp: " ++ Text.unpack e)
 
 instance ToJSON Timestamp where
-  toJSON = JSON.toJSON . tsToText
+  toJSON = Aeson.toJSON . tsToText
 
 data Protocol
   = JSON
@@ -91,7 +73,7 @@ data Protocol
   deriving (Eq, Show, Generic)
 
 instance FromJSON Protocol where
-  parseJSON = JSON.withText "protocol" $ \case
+  parseJSON = Aeson.withText "protocol" $ \case
     "json" -> pure JSON
     "rest-json" -> pure RestJSON
     "rest-xml" -> pure RestXML
@@ -102,7 +84,7 @@ instance FromJSON Protocol where
 
 instance ToJSON Protocol where
   toJSON =
-    JSON.String . \case
+    Aeson.String . \case
       JSON -> "json"
       RestJSON -> "rest-json"
       RestXML -> "rest-xml"
@@ -151,7 +133,7 @@ data XML = XML'
   }
   deriving (Eq, Show, Generic)
 
-$(TH.makeLenses ''XML)
+$(Lens.makeLenses ''XML)
 
 instance FromJSON XML where
   parseJSON = gParseJSON' (camel & lenses .~ True)
@@ -170,15 +152,15 @@ data RefF a = RefF
   }
   deriving (Functor, Foldable, Traversable, Generic)
 
-$(TH.deriveShow1 ''RefF)
-$(TH.deriveShow ''RefF)
-$(TH.makeLenses ''RefF)
+$(Deriving.deriveShow1 ''RefF)
+$(Deriving.deriveShow ''RefF)
+$(Lens.makeLenses ''RefF)
 
 instance HasId (RefF a) where
   identifier = identifier . _refShape
 
 instance FromJSON (RefF ()) where
-  parseJSON = JSON.withObject "ref" $ \o ->
+  parseJSON = Aeson.withObject "ref" $ \o ->
     RefF ()
       <$> o .: "shape"
       <*> o .:? "documentation"
@@ -200,10 +182,10 @@ data ErrorInfo = ErrorInfo
   }
   deriving (Show, Generic)
 
-$(TH.makeLenses ''ErrorInfo)
+$(Lens.makeLenses ''ErrorInfo)
 
 instance FromJSON ErrorInfo where
-  parseJSON = JSON.withObject "error" $ \o ->
+  parseJSON = Aeson.withObject "error" $ \o ->
     ErrorInfo
       <$> o .:? "code"
       <*> (o .: "httpStatusCode" <&> parseStatusCode)
@@ -221,10 +203,10 @@ data Info = Info
   }
   deriving (Show, Generic)
 
-$(TH.makeClassy ''Info)
+$(Lens.makeClassy ''Info)
 
 instance FromJSON Info where
-  parseJSON = JSON.withObject "info" $ \o ->
+  parseJSON = Aeson.withObject "info" $ \o ->
     Info
       <$> o .:? "documentation"
       <*> o .:? "min"
@@ -244,9 +226,9 @@ data ListF a = ListF
   }
   deriving (Functor, Foldable, Traversable)
 
-$(TH.deriveShow1 ''ListF)
-$(TH.deriveShow ''ListF)
-$(TH.makeLenses ''ListF)
+$(Deriving.deriveShow1 ''ListF)
+$(Deriving.deriveShow ''ListF)
+$(Lens.makeLenses ''ListF)
 
 instance HasInfo (ListF a) where
   info = listInfo
@@ -255,7 +237,7 @@ instance HasRefs ListF where
   references = listItem
 
 instance FromJSON (Info -> ListF ()) where
-  parseJSON = JSON.withObject "list" $ \o ->
+  parseJSON = Aeson.withObject "list" $ \o ->
     flip ListF
       <$> o .: "member"
 
@@ -266,9 +248,9 @@ data MapF a = MapF
   }
   deriving (Functor, Foldable, Traversable)
 
-$(TH.deriveShow1 ''MapF)
-$(TH.deriveShow ''MapF)
-$(TH.makeLenses ''MapF)
+$(Deriving.deriveShow1 ''MapF)
+$(Deriving.deriveShow ''MapF)
+$(Lens.makeLenses ''MapF)
 
 instance HasInfo (MapF a) where
   info = mapInfo
@@ -277,23 +259,23 @@ instance HasRefs MapF where
   references f (MapF i k v) = MapF i <$> f k <*> f v
 
 instance FromJSON (Info -> MapF ()) where
-  parseJSON = JSON.withObject "map" $ \o -> do
+  parseJSON = Aeson.withObject "map" $ \o -> do
     k <- o .: "key"
     v <- o .: "value"
     return $ \i -> MapF i k v
 
 data StructF a = StructF
   { _structInfo :: Info,
-    _members :: Map Id (RefF a),
+    _members :: HashMap Id (RefF a),
     -- | List so it can be used for ordering.
     _required' :: [Id],
     _payload :: Maybe Id
   }
   deriving (Functor, Foldable, Traversable)
 
-$(TH.deriveShow1 ''StructF)
-$(TH.deriveShow ''StructF)
-$(TH.makeLenses ''StructF)
+$(Deriving.deriveShow1 ''StructF)
+$(Deriving.deriveShow ''StructF)
+$(Lens.makeLenses ''StructF)
 
 instance HasInfo (StructF a) where
   info = structInfo
@@ -302,7 +284,7 @@ instance HasRefs StructF where
   references = Lens.traverseOf (members . Lens.each)
 
 instance FromJSON (Info -> StructF ()) where
-  parseJSON = JSON.withObject "struct" $ \o -> do
+  parseJSON = Aeson.withObject "struct" $ \o -> do
     ms <- o .: "members"
     r <- o .:? "required" .!= mempty
     p <- o .:? "payload"
@@ -310,9 +292,9 @@ instance FromJSON (Info -> StructF ()) where
     where
       -- This ensure that the field referenced by a possible
       -- "payload":<id> has a location set.
-      body :: Maybe Id -> Map Id (RefF a) -> Map Id (RefF a)
+      body :: Maybe Id -> HashMap Id (RefF a) -> HashMap Id (RefF a)
       body Nothing = id
-      body (Just p) = Map.mapWithKey f
+      body (Just p) = HashMap.mapWithKey f
         where
           f n r
             | p == n = r & refLocation ?~ Body
@@ -323,13 +305,13 @@ data ShapeF a
   | List (ListF a)
   | Map (MapF a)
   | Struct (StructF a)
-  | Enum Info (Map Id Text)
+  | Enum Info (HashMap Id Text)
   | Lit Info Lit
   deriving (Functor, Foldable, Traversable)
 
-$(TH.deriveShow1 ''ShapeF)
-$(TH.deriveShow ''ShapeF)
-$(TH.makePrisms ''ShapeF)
+$(Deriving.deriveShow1 ''ShapeF)
+$(Deriving.deriveShow ''ShapeF)
+$(Lens.makePrisms ''ShapeF)
 
 instance HasInfo (ShapeF a) where
   info f = \case
@@ -341,9 +323,9 @@ instance HasInfo (ShapeF a) where
     Lit i l -> (`Lit` l) <$> f i
 
 instance HasInfo (Cofree ShapeF a) where
-  info = Lens.lens unwrap go . info
+  info = Lens.lens Cofree.unwrap go . info
     where
-      go s a = extract s :< a
+      go s a = Comonad.extract s :< a
 
 instance HasRefs ShapeF where
   references f = \case
@@ -355,15 +337,15 @@ instance HasRefs ShapeF where
     Lit i l -> pure (Lit i l)
 
 instance FromJSON (ShapeF ()) where
-  parseJSON = JSON.withObject "shape" $ \o -> do
-    i <- JSON.parseJSON (JSON.Object o)
+  parseJSON = Aeson.withObject "shape" $ \o -> do
+    i <- Aeson.parseJSON (Aeson.Object o)
     t <- o .: "type"
     m <- o .:? "enum"
 
     case t of
-      "list" -> List . ($ i) <$> JSON.parseJSON (JSON.Object o)
-      "map" -> Map . ($ i) <$> JSON.parseJSON (JSON.Object o)
-      "structure" -> Struct . ($ i) <$> JSON.parseJSON (JSON.Object o)
+      "list" -> List . ($ i) <$> Aeson.parseJSON (Aeson.Object o)
+      "map" -> Map . ($ i) <$> Aeson.parseJSON (Aeson.Object o)
+      "structure" -> Struct . ($ i) <$> Aeson.parseJSON (Aeson.Object o)
       "integer" -> pure (Lit i Int)
       "long" -> pure (Lit i Long)
       "double" -> pure (Lit i Double)
@@ -374,7 +356,7 @@ instance FromJSON (ShapeF ()) where
       "json" -> pure (Lit i Json)
       "string" -> pure (maybe (Lit i Text) f m)
         where
-          f = Enum i . Map.fromList . map (first mkId . renameBranch)
+          f = Enum i . HashMap.fromList . map (first mkId . renameBranch)
       _ -> fail $ "Unknown Shape type: " ++ Text.unpack t
 
 data Operation f a b = Operation
@@ -387,7 +369,7 @@ data Operation f a b = Operation
     _opPager :: Maybe b
   }
 
-$(TH.makeLenses ''Operation)
+$(Lens.makeLenses ''Operation)
 
 operationNS :: NS -> Id -> NS
 operationNS ns = mappend ns . mkNS . typeId
@@ -400,7 +382,7 @@ instance HasHTTP (Operation f a b) where
   hTTP = opHttp
 
 instance FromJSON (Operation Maybe (RefF ()) ()) where
-  parseJSON = JSON.withObject "operation" $ \o ->
+  parseJSON = Aeson.withObject "operation" $ \o ->
     Operation
       <$> (o .: "name" <&> mkId . renameOperation)
       <*> o .:? "documentation"
@@ -412,7 +394,7 @@ instance FromJSON (Operation Maybe (RefF ()) ()) where
 
 instance ToJSON a => ToJSON (Operation Identity a b) where
   toJSON o =
-    JSON.object
+    Aeson.object
       [ "name" .= (o ^. opName),
         "documentation" .= (o ^. opDocumentation),
         "input" .= (o ^. opInput),
@@ -441,10 +423,10 @@ deriving instance Show (Metadata Maybe)
 
 deriving instance Show (Metadata Identity)
 
-$(TH.makeClassy ''Metadata)
+$(Lens.makeClassy ''Metadata)
 
 instance FromJSON (Metadata Maybe) where
-  parseJSON = JSON.withObject "meta" $ \o ->
+  parseJSON = Aeson.withObject "meta" $ \o ->
     Metadata
       <$> o .: "protocol"
       <*> o .: "serviceAbbreviation"
@@ -476,34 +458,35 @@ serviceError m =
 data Service f a b c = Service
   { _metadata' :: Metadata f,
     _documentation :: Help,
-    _operations :: Map Id (Operation f a (Pager Id)),
-    _shapes :: Map Id b,
-    _waiters :: Map Id c,
+    _operations :: HashMap Id (Operation f a (Pager Id)),
+    _shapes :: HashMap Id b,
+    _waiters :: HashMap Id c,
     _retry :: Retry
   }
   deriving (Generic)
 
-$(TH.makeClassy ''Service)
+$(Lens.makeClassy ''Service)
 
 instance HasMetadata (Service f a b c) f where
   metadata = metadata'
 
 instance FromJSON (Service Maybe (RefF ()) (ShapeF ()) (Waiter Id)) where
-  parseJSON = JSON.withObject "service" $ \o -> do
-    m <- o .: "metadata"
-    p <- o .:? "pagination" .!= mempty
-    Service m
-      <$> o .: "documentation"
-      <*> (o .: "operations" <&> Map.map (pager p))
-      <*> o .: "shapes"
-      <*> o .:? "waiters" .!= mempty
-      <*> parseRetry (m ^. serviceAbbrev) o
+  parseJSON =
+    Aeson.withObject "service" $ \o -> do
+      m <- o .: "metadata"
+      p <- o .:? "pagination" .!= mempty
+      Service m
+        <$> o .: "documentation"
+        <*> (o .: "operations" <&> HashMap.map (pager p))
+        <*> o .: "shapes"
+        <*> o .:? "waiters" .!= mempty
+        <*> parseRetry (m ^. serviceAbbrev) o
     where
       pager ::
-        Map Id (Pager Id) ->
+        HashMap Id (Pager Id) ->
         Operation f a () ->
         Operation f a (Pager Id)
-      pager ps o = o & opPager .~ Map.lookup (o ^. opName) ps
+      pager ps o = o & opPager .~ HashMap.lookup (o ^. opName) ps
 
 type Shape = Cofree ShapeF
 
@@ -526,11 +509,12 @@ instance IsStreaming a => IsStreaming (RefF a) where
   isStreaming r = _refStreaming r || isStreaming (_refAnn r)
 
 instance IsStreaming TType where
-  isStreaming TStream = True
-  isStreaming _ = False
+  isStreaming = \case
+    TStream -> True
+    _ -> False
 
 setRequired :: ([Id] -> [Id]) -> ShapeF a -> ShapeF a
-setRequired f = _Struct . required' %~ nub . f
+setRequired f = _Struct . required' %~ List.nub . f
 
 getRequired :: Lens.Fold (StructF a) Id
 getRequired = required' . Lens.each

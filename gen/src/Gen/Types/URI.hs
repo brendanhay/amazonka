@@ -1,26 +1,15 @@
 {-# LANGUAGE TemplateHaskell #-}
 
--- Module      : Gen.Types.URI
--- Copyright   : (c) 2013-2021 Brendan Hay
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
--- Stability   : provisional
--- Portability : non-portable (GHC extensions)
-
 module Gen.Types.URI where
 
-import Control.Applicative
-import Control.Lens
-import Data.Aeson
-import Data.Attoparsec.Text (Parser)
-import qualified Data.Attoparsec.Text as Parse
-import Data.Text (Text)
+import Control.Applicative (some)
+import qualified Control.Lens as Lens
+import Data.Aeson ((.:))
+import qualified Data.Aeson as Aeson
+import qualified Data.Attoparsec.Text as Atto
 import qualified Data.Text as Text
 import qualified Data.Text.Read as Text
-import GHC.Generics (Generic)
+import Gen.Prelude
 import Gen.TH
 import Gen.Types.Id
 
@@ -29,7 +18,7 @@ data Segment
   | Var Id
   deriving (Eq, Show)
 
-makePrisms ''Segment
+$(Lens.makePrisms ''Segment)
 
 data URI = URI'
   { _uriPath :: [Segment],
@@ -37,28 +26,28 @@ data URI = URI'
   }
   deriving (Eq, Show)
 
-makeClassy ''URI
+$(Lens.makeClassy ''URI)
 
-segments :: Traversal' URI Segment
+segments :: Lens.Traversal' URI Segment
 segments f x = URI' <$> traverse f (_uriPath x) <*> traverse f (_uriQuery x)
 
 instance FromJSON URI where
-  parseJSON = withText "uri" (either fail return . Parse.parseOnly uriParser)
+  parseJSON = Aeson.withText "URI" (either fail return . Atto.parseOnly uriParser)
 
-uriParser :: Parser URI
+uriParser :: Atto.Parser URI
 uriParser =
   URI'
     <$> some seg
-    <*> Parse.option [] (Parse.char '?' *> some seg)
-    <* Parse.endOfInput
+    <*> Atto.option [] (Atto.char '?' *> some seg)
+    <* Atto.endOfInput
   where
     seg =
-      Tok <$> Parse.takeWhile1 (end '{')
+      Tok <$> Atto.takeWhile1 (end '{')
         <|> Var <$> var
 
     var =
       mkId . Text.filter rep
-        <$> (Parse.char '{' *> Parse.takeWhile1 (end '}') <* Parse.char '}')
+        <$> (Atto.char '{' *> Atto.takeWhile1 (end '}') <* Atto.char '}')
 
     end x y | x == y = False
     end _ '?' = False
@@ -80,7 +69,7 @@ instance FromJSON Method where
   parseJSON = gParseJSON' upper
 
 instance ToJSON Method where
-  toJSON = toJSON . methodToText
+  toJSON = Aeson.toJSON . methodToText
 
 methodToText :: Method -> Text
 methodToText = \case
@@ -98,25 +87,27 @@ data HTTP = HTTP
   }
   deriving (Show, Generic)
 
-makeClassy ''HTTP
+$(Lens.makeClassy ''HTTP)
 
 instance HasURI HTTP where
   uRI = requestURI
 
 instance FromJSON HTTP where
-  parseJSON = withObject "HTTP" $ \o ->
-    HTTP
-      <$> o .: "method"
-      <*> o .: "requestUri"
-      <*> ((o .: "responseCode" <&> parseStatusCode) <|> pure 200)
+  parseJSON =
+    Aeson.withObject "HTTP" $ \o ->
+      HTTP
+        <$> o .: "method"
+        <*> o .: "requestUri"
+        <*> ((o .: "responseCode" <&> parseStatusCode) <|> pure 200)
 
 newtype StatusCodeParser = StatusCodeParser {parseStatusCode :: Int}
 
 instance FromJSON StatusCodeParser where
-  parseJSON (Number n) = StatusCodeParser <$> parseJSON (Number n)
-  parseJSON (String s) =
-    case Text.decimal s of
-      Right (n, "") -> pure (StatusCodeParser n)
-      v -> fail ("Failure parsing responseCode from: " ++ show v)
-  parseJSON v =
-    fail ("Failure parsing responseCode from: " ++ show v)
+  parseJSON = \case
+    Aeson.Number n -> StatusCodeParser <$> Aeson.parseJSON (Aeson.Number n)
+    Aeson.String s ->
+      case Text.decimal s of
+        Right (n, "") -> pure (StatusCodeParser n)
+        other -> fail ("Failure parsing responseCode from: " ++ show other)
+    value ->
+      fail ("Failure parsing responseCode from: " ++ show value)

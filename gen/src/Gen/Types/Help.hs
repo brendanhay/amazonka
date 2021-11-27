@@ -1,24 +1,13 @@
--- Module      : Gen.Types.Help
--- Copyright   : (c) 2013-2021 Brendan Hay
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
--- Stability   : provisional
--- Portability : non-portable (GHC extensions)
-
 module Gen.Types.Help
   ( Help (..),
     renderHaddock,
   )
 where
 
-import Data.Aeson
-import Data.String
-import Data.Text (Text)
+import qualified Data.Aeson as Aeson
 import qualified Data.Text as Text
-import qualified Data.Text.Lazy as LText
+import qualified Data.Text.Lazy as Text.Lazy
+import Gen.Prelude
 import Gen.Text (replaceHead)
 import System.IO.Unsafe (unsafePerformIO)
 import qualified Text.Pandoc as Pandoc
@@ -34,17 +23,21 @@ instance IsString Help where
   fromString = Help . fromString
 
 instance FromJSON Help where
-  parseJSON = withText "help" (pure . Help . convertHaddock)
+  parseJSON = Aeson.withText "Help" (pure . Help . convertHaddock)
 
 instance ToJSON Help where
   -- Note the wierd templating behaviour of first line is unprefixed,
   -- with the remainder being haddock prefixed with "--".
-  toJSON = toJSON . LText.strip . LText.drop 3 . renderHaddock False 0
+  toJSON =
+    Aeson.toJSON
+      . Text.Lazy.strip
+      . Text.Lazy.drop 3
+      . renderHaddock False 0
 
-renderHaddock :: Bool -> Int -> Help -> LText.Text
+renderHaddock :: Bool -> Int -> Help -> Text.Lazy.Text
 renderHaddock topLevel indent (Help text) =
   let start =
-        LText.replicate (fromIntegral indent) " "
+        Text.Lazy.replicate (fromIntegral indent) " "
 
       block =
         replaceHead $ \case
@@ -52,11 +45,11 @@ renderHaddock topLevel indent (Help text) =
           _c -> Nothing
 
       cat sep =
-        mappend (start <> sep) . LText.fromStrict . block
+        mappend (start <> sep) . Text.Lazy.fromStrict . block
    in case Text.lines text of
         [] -> mempty
         x : xs ->
-          LText.unlines $
+          Text.Lazy.unlines $
             cat (if topLevel then "-- | " else "-- ") x : map (cat "-- ") xs
 
 convertHaddock :: Text -> Text
@@ -67,7 +60,7 @@ convertHaddock text =
 
     pure (Text.strip help)
 
--- go . XML.documentRoot . DOM.parseLBS . LBS.fromStrict . Text.encodeUtf8
+-- go . XML.documentRoot . DOM.parseByteString.Lazy . LBS.fromStrict . Text.encodeUtf8
 -- where
 --   go x =
 --     case name x of

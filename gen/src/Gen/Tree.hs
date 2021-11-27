@@ -1,57 +1,39 @@
--- Module      : Gen.Tree
--- Copyright   : (c) 2013-2021 Brendan Hay
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
--- Stability   : provisional
--- Portability : non-portable (GHC extensions)
-
 module Gen.Tree
-  ( root,
-    fold,
+  ( fold,
     populate,
   )
 where
 
-import Control.Lens (each, (^.), (^..))
-import Control.Monad
-import Data.Aeson hiding (json)
-import Data.Bifunctor
-import Data.Functor.Identity
-import Data.Maybe (mapMaybe)
-import Data.Monoid hiding (Sum)
-import Data.Text (Text)
+import qualified Control.Lens as Lens
+import Data.Aeson ((.=))
+import qualified Data.Aeson as Aeson
+import qualified Data.List as List
 import qualified Data.Text as Text
 import Gen.Import
-import qualified Gen.JSON as JS
+import qualified Gen.JSON as JSON
+import Gen.Prelude hiding (mod)
 import Gen.Types
-import System.Directory.Tree hiding (file)
-import System.FilePath ((<.>), (</>))
+import System.Directory.Tree (AnchoredDirTree ((:/)), DirTree (..))
 import qualified System.FilePath as FilePath
-import Text.EDE hiding (failure, render)
-import Prelude hiding (mod)
-
-root :: AnchoredDirTree a -> FilePath
-root (p :/ d) = p </> name d
+import Text.EDE (Template)
+import qualified Text.EDE as EDE
 
 fold ::
   MonadFail m =>
   -- | Directories
   (FilePath -> m ()) ->
   -- | Files
-  (FilePath -> a -> m b) ->
+  (FilePath -> a -> m ()) ->
   AnchoredDirTree a ->
-  m (AnchoredDirTree b)
-fold g f (p :/ t) = (p :/) <$> go p t
+  m FilePath
+fold handleDir handleFile (p :/ tree) = go p tree >> pure p
   where
-    go x = \case
-      Failed n e -> fail (show e) >> return (Failed n e)
-      File n a -> File n <$> f (x </> n) a
-      Dir n cs -> g d >> Dir n <$> mapM (go d) cs
+    go path = \case
+      Failed _n err -> fail (show err)
+      File name x -> handleFile (path </> name) x
+      Dir name xs -> handleDir dir >> traverse_ (go dir) xs
         where
-          d = x </> n
+          dir = path </> name
 
 type Touch = Either Rendered Rendered
 
@@ -60,60 +42,50 @@ populate ::
   Templates ->
   Library ->
   Either String (AnchoredDirTree Touch)
-populate d Templates {..} l = (d :/) . dir lib <$> layout
+populate d Templates {..} l = (d :/) . Dir lib <$> layout
   where
     layout :: Either String [DirTree Touch]
     layout =
-      traverse
-        sequenceA
-        [ dir
-            "src"
+      traverse sequenceA $
+        [ Dir "src" $
             -- Supress cabal warnings about directories listed that don't exist.
             [ touch ".gitkeep" blankTemplate mempty
             ],
-          dir
-            "gen"
-            [ dir
-                "Amazonka"
-                [ dir svc $
-                    [ dir "Types" $
-                        mapMaybe shape (l ^.. shapes . each),
+          Dir "gen" $
+            [ Dir "Amazonka" $
+                [ Dir svc $
+                    [ Dir "Types" (mapMaybe shape (l ^.. shapes . Lens.each)),
                       mod (l ^. typesNS) (typeImports l) typesTemplate,
                       mod (l ^. waitersNS) (waiterImports l) waitersTemplate,
                       mod (l ^. lensNS) (lensImports l) lensTemplate
                     ]
-                      ++ map op (l ^.. operations . each),
+                      ++ map op (l ^.. operations . Lens.each),
                   mod (l ^. libraryNS) mempty tocTemplate
                 ]
             ],
-          dir
-            "test"
+          Dir "test" $
             [ mod "Main" (testImports l) testMainTemplate,
-              dir
-                "Test"
-                [ dir
-                    "Amazonka"
+              Dir "Test" $
+                [ Dir "Amazonka" $
                     [ touch (l ^. serviceAbbrev <> ".hs") testNamespaceTemplate $
-                        fromPairs
+                        EDE.fromPairs
                           [ "moduleName"
                               .= ("Test.Amazonka." <> l ^. serviceAbbrev)
                           ],
-                      dir
-                        svc
+                      Dir svc $
                         [ touch "Internal.hs" testInternalTemplate $
-                            fromPairs
+                            EDE.fromPairs
                               [ "moduleName"
                                   .= ("Test.Amazonka." <> l ^. serviceAbbrev <> ".Internal")
                               ]
                         ],
-                      dir
-                        "Gen"
+                      Dir "Gen" $
                         [ mod (l ^. fixturesNS) (fixtureImports l) fixturesTemplate
                         ]
                     ]
                 ]
             ],
-          dir "fixture" (concatMap fixture (l ^.. operations . each)),
+          Dir "fixture" (concatMap fixture (l ^.. operations . Lens.each)),
           file (lib <.> "cabal") cabalTemplate,
           file "README.md" readmeTemplate
         ]
@@ -136,7 +108,7 @@ populate d Templates {..} l = (d :/) . dir lib <$> layout
     fixture o =
       [ touch (n <> "Response.proto") blankTemplate mempty,
         touch (n <> ".yaml") fixtureRequestTemplate $
-          fromPairs
+          EDE.fromPairs
             [ "method" .= (o ^. opHttp . method),
               "endpointPrefix" .= (l ^. endpointPrefix)
             ]
@@ -148,10 +120,10 @@ populate d Templates {..} l = (d :/) . dir lib <$> layout
     mod n is t = write $ module' n is t (pure env)
 
     file :: FilePath -> Template -> DirTree (Either String Touch)
-    file p t = write $ file' p t (pure env)
+    file p t = write $ render p t (pure env)
 
-    env :: Value
-    env = toJSON l
+    env :: Aeson.Value
+    env = Aeson.toJSON l
 
 operation' ::
   Library ->
@@ -159,9 +131,9 @@ operation' ::
   Operation Identity SData a ->
   DirTree (Either String Rendered)
 operation' l t o = module' n is t $ do
-  x <- JS.objectErr (show n) o
-  y <- JS.objectErr "metadata" (toJSON m)
-  return $! y <> x
+  x <- JSON.objectErr (show n) o
+  y <- JSON.objectErr "metadata" (Aeson.toJSON m)
+  pure $! y <> x
   where
     n = operationNS (l ^. libraryNS) (o ^. opName)
     m = l ^. metadata
@@ -181,7 +153,7 @@ shape' l t s = module' n (is s) t $ pure env
     is (Sum _ _ _) = sumImports l
     is _ = []
 
-    env = object ["shape" .= s]
+    env = Aeson.object ["shape" .= s]
 
 module' ::
   ToJSON a =>
@@ -191,32 +163,30 @@ module' ::
   Either String a ->
   DirTree (Either String Rendered)
 module' ns is tmpl f =
-  file' (FilePath.takeFileName (nsToPath ns)) tmpl $ do
-    x <- f >>= JS.objectErr (show ns)
-    return $! x
-      <> fromPairs
+  render (FilePath.takeFileName (nsToPath ns)) tmpl $ do
+    x <- f >>= JSON.objectErr (show ns)
+    pure $! x
+      <> EDE.fromPairs
         [ "moduleName" .= ns,
           "moduleImports" .= is,
           "templateName" .= (templateName ns)
         ]
   where
-    templateName (NS xs) = last xs
+    templateName (NS xs) = List.last xs
 
-file' ::
+render ::
   ToJSON a =>
   FilePath ->
   Template ->
   Either String a ->
   DirTree (Either String Rendered)
-file' p tmpl f =
-  File p (f >>= JS.objectErr p >>= eitherRender tmpl)
+render p tmpl f =
+  File p (f >>= JSON.objectErr p >>= EDE.eitherRender tmpl)
 
-dir :: FilePath -> [DirTree a] -> DirTree a
-dir = Dir
+touch :: Text -> Template -> Aeson.Object -> DirTree (Either String Touch)
+touch f tmpl env =
+  File (Text.unpack f) $
+    bimap id Left (EDE.eitherRender tmpl env)
 
 write :: DirTree (Either e b) -> DirTree (Either e (Either a b))
 write = fmap (second Right)
-
-touch :: Text -> Template -> Object -> DirTree (Either String Touch)
-touch f tmpl env =
-  File (Text.unpack f) (bimap id Left (eitherRender tmpl env))

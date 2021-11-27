@@ -54,7 +54,7 @@ load("@rules_haskell//haskell:defs.bzl", "haskell_repl")
 
 # If you want a repl for an amazonka-* package use the @repl target.
 # For example:
-#   bazel run //amazonka-s3:amazonka-s3@repl
+#   bazel run //lib/services/amazonka-s3:amazonka-s3@repl
 haskell_repl(
     name = "repl",
     deps = [

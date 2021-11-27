@@ -1,21 +1,12 @@
 {-# LANGUAGE TemplateHaskell #-}
 
--- Module      : Gen.Types.Waiter
--- Copyright   : (c) 2013-2021 Brendan Hay
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla xtPublic License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
--- Stability   : provisional
--- Portability : non-portable (GHC extensions)
-
 module Gen.Types.Waiter where
 
-import Control.Lens
-import Data.Aeson
-import Data.Text (Text)
-import GHC.Generics
+import qualified Control.Lens as Lens
+import Data.Aeson ((.:), (.:?))
+import qualified Data.Aeson as Aeson
+import GHC.Generics ()
+import Gen.Prelude
 import Gen.TH
 import Gen.Types.Id
 import Gen.Types.Notation
@@ -48,9 +39,9 @@ data Expect
 
 instance FromJSON Expect where
   parseJSON = \case
-    String s -> pure (Textual s)
-    Bool b -> pure (Boolean b)
-    o -> Status' <$> parseJSON o
+    Aeson.String s -> pure (Textual s)
+    Aeson.Bool b -> pure (Boolean b)
+    o -> Status' <$> Aeson.parseJSON o
 
 data Accept a = Accept
   { _acceptExpect :: Expect,
@@ -60,15 +51,16 @@ data Accept a = Accept
   }
   deriving (Eq, Show)
 
-makeLenses ''Accept
+$(Lens.makeLenses ''Accept)
 
 instance FromJSON (Accept Id) where
-  parseJSON = withObject "acceptor" $ \o ->
-    Accept
-      <$> o .: "expected"
-      <*> o .: "matcher"
-      <*> o .: "state"
-      <*> o .:? "argument"
+  parseJSON =
+    Aeson.withObject "acceptor" $ \o ->
+      Accept
+        <$> o .: "expected"
+        <*> o .: "matcher"
+        <*> o .: "state"
+        <*> o .:? "argument"
 
 data Waiter a = Waiter
   { _waitDelay :: Integer,
@@ -78,12 +70,13 @@ data Waiter a = Waiter
   }
   deriving (Show, Eq)
 
-makeLenses ''Waiter
+$(Lens.makeLenses ''Waiter)
 
 instance FromJSON (Waiter Id) where
-  parseJSON = withObject "waiter" $ \o ->
-    Waiter
-      <$> o .: "delay"
-      <*> o .: "maxAttempts"
-      <*> o .: "operation"
-      <*> o .: "acceptors"
+  parseJSON =
+    Aeson.withObject "waiter" $ \o ->
+      Waiter
+        <$> o .: "delay"
+        <*> o .: "maxAttempts"
+        <*> o .: "operation"
+        <*> o .: "acceptors"

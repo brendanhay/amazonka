@@ -1,15 +1,5 @@
 {-# LANGUAGE TemplateHaskell #-}
 
--- Module      : Gen.TH
--- Copyright   : (c) 2013-2021 Brendan Hay
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
--- Stability   : provisional
--- Portability : non-portable (GHC extensions)
-
 module Gen.TH
   ( gParseJSON',
     gToJSON',
@@ -23,12 +13,21 @@ module Gen.TH
   )
 where
 
-import Control.Lens
-import Data.Aeson.TH
+import qualified Control.Lens as Lens
+import qualified Data.Aeson as Aeson
 import Data.Aeson.Types
-import Data.Text (Text)
+  ( GFromJSON,
+    GToJSON,
+    Options (..),
+    Parser,
+    SumEncoding (TaggedObject),
+    Value,
+    Zero,
+    defaultOptions,
+  )
 import qualified Data.Text as Text
-import GHC.Generics
+import GHC.Generics (Rep)
+import Gen.Prelude
 import Gen.Text
 
 data TH = TH
@@ -37,13 +36,13 @@ data TH = TH
     _lenses :: Bool
   }
 
-makeLenses ''TH
+$(Lens.makeLenses ''TH)
 
 gParseJSON' :: (Generic a, GFromJSON Zero (Rep a)) => TH -> Value -> Parser a
-gParseJSON' th = genericParseJSON (aeson th)
+gParseJSON' th = Aeson.genericParseJSON (aeson th)
 
 gToJSON' :: (Generic a, GToJSON Zero (Rep a)) => TH -> a -> Value
-gToJSON' th = genericToJSON (aeson th)
+gToJSON' th = Aeson.genericToJSON (aeson th)
 
 upper, lower, camel :: TH
 upper = TH Text.toUpper Text.toUpper False

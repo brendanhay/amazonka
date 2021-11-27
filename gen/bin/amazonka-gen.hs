@@ -1,25 +1,21 @@
-{-# LANGUAGE RankNTypes #-}
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TemplateHaskell #-}
 {-# OPTIONS_GHC -fno-warn-unused-top-binds #-}
 
 module Main (main) where
 
-import Control.Lens (Lens', (^.))
 import qualified Control.Lens as Lens
-import Control.Monad
-import Control.Monad.Except
-import Control.Monad.State
+import qualified Control.Monad.State.Strict as State
 import qualified Data.List as List
 import qualified Data.Text as Text
 import qualified Data.Time as Time
 import qualified Gen.AST as AST
 import Gen.IO
 import qualified Gen.JSON as JSON
+import Gen.Prelude
 import qualified Gen.Tree as Tree
 import Gen.Types hiding (config, info, retry, service)
-import Options.Applicative
-import System.FilePath ((</>))
+import qualified Options.Applicative as Options
 import qualified System.FilePath as FilePath
 import qualified UnliftIO
 import qualified UnliftIO.Directory as UnliftIO
@@ -38,72 +34,72 @@ data Options = Options
 
 $(Lens.makeLenses ''Options)
 
-parser :: Parser Options
+parser :: Options.Parser Options
 parser =
   Options
-    <$> strOption
-      ( long "out"
-          <> metavar "OUT-PATH"
-          <> help "Directory to place the generated library."
+    <$> Options.strOption
+      ( Options.long "out"
+          <> Options.metavar "OUT-PATH"
+          <> Options.help "Directory to place the generated library."
       )
-    <*> strOption
-      ( long "annexes"
-          <> metavar "PATH"
-          <> help "Directory containing botocore model annexes."
-          <> value "config/annexes"
+    <*> Options.strOption
+      ( Options.long "annexes"
+          <> Options.metavar "PATH"
+          <> Options.help "Directory containing botocore model annexes."
+          <> Options.value "config/annexes"
       )
-    <*> strOption
-      ( long "services"
-          <> metavar "PATH"
-          <> help "Directory containing service configuration."
-          <> value "config/services"
+    <*> Options.strOption
+      ( Options.long "services"
+          <> Options.metavar "PATH"
+          <> Options.help "Directory containing service configuration."
+          <> Options.value "config/services"
       )
-    <*> strOption
-      ( long "templates"
-          <> metavar "PATH"
-          <> help "Directory containing ED-E templates."
-          <> value "config/templates"
+    <*> Options.strOption
+      ( Options.long "templates"
+          <> Options.metavar "PATH"
+          <> Options.help "Directory containing ED-E templates."
+          <> Options.value "config/templates"
       )
-    <*> strOption
-      ( long "assets"
-          <> metavar "PATH"
-          <> help "Directory containing static files for generated libraries."
-          <> value "config/assets"
+    <*> Options.strOption
+      ( Options.long "assets"
+          <> Options.metavar "PATH"
+          <> Options.help "Directory containing static files for generated libraries."
+          <> Options.value "config/assets"
       )
-    <*> strOption
-      ( long "retry"
-          <> metavar "PATH"
-          <> help "Path to the file containing retry definitions."
+    <*> Options.strOption
+      ( Options.long "retry"
+          <> Options.metavar "PATH"
+          <> Options.help "Path to the file containing retry definitions."
       )
     <*> ( Versions
-            <$> option
+            <$> Options.option
               versionReader
-              ( long "library-version"
-                  <> metavar "VERSION"
-                  <> help "Version of the library to generate."
+              ( Options.long "library-version"
+                  <> Options.metavar "VERSION"
+                  <> Options.help "Version of the library to generate."
               )
-            <*> option
+            <*> Options.option
               versionReader
-              ( long "client-version"
-                  <> metavar "VERSION"
-                  <> help "Client library version dependecy for examples."
+              ( Options.long "client-version"
+                  <> Options.metavar "VERSION"
+                  <> Options.help "Client library version dependecy for examples."
               )
         )
-    <*> some
-      ( strArgument
-          ( metavar "MODEL-PATH"
-              <> help "Directory for a service's botocore models."
+    <*> Options.some
+      ( Options.strArgument
+          ( Options.metavar "MODEL-PATH"
+              <> Options.help "Directory for a service's botocore models."
           )
       )
 
-versionReader :: ReadM (Version v)
-versionReader = eitherReader (Right . Version . Text.pack)
+versionReader :: Options.ReadM (Version v)
+versionReader = Options.eitherReader (Right . Version . Text.pack)
 
-options :: ParserInfo Options
-options = info (helper <*> parser) fullDesc
+options :: Options.ParserInfo Options
+options = Options.info (Options.helper <*> parser) Options.fullDesc
 
 validate :: MonadIO m => Options -> m Options
-validate o = flip execStateT o $ do
+validate o = flip State.execStateT o $ do
   sequence_
     [ check optionOutput,
       check optionAnnexes,
@@ -115,7 +111,7 @@ validate o = flip execStateT o $ do
   mapM canon (o ^. optionModels) >>= Lens.assign optionModels
   where
     check :: (MonadIO m, MonadState s m) => Lens' s FilePath -> m ()
-    check l = gets (Lens.view l) >>= canon >>= Lens.assign l
+    check l = State.gets (Lens.view l) >>= canon >>= Lens.assign l
 
     canon :: MonadIO m => FilePath -> m FilePath
     canon = UnliftIO.canonicalizePath
@@ -123,7 +119,7 @@ validate o = flip execStateT o $ do
 main :: IO ()
 main = do
   Options {..} <-
-    customExecParser (prefs showHelpOnError) options
+    Options.customExecParser (Options.prefs Options.showHelpOnError) options
       >>= validate
 
   title "Initialising..." <* done
@@ -202,7 +198,7 @@ main = do
         ++ Text.unpack (library ^. libraryName)
         ++ "' Haskell package"
 
-    directoryTree <-
+    root <-
       hoistEither (Tree.populate _optionOutput templates library)
         >>= Tree.fold createDir (\x -> either (touchFile x) (writeLTFile x))
 
@@ -212,9 +208,9 @@ main = do
         ++ "-"
         ++ Text.unpack (semver (library ^. libraryVersion))
         ++ " package in "
-        ++ Tree.root directoryTree
+        ++ root
 
-    copyDir _optionAssets (Tree.root directoryTree)
+    copyDir _optionAssets root
 
     done
 

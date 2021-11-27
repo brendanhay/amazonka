@@ -52,6 +52,7 @@ module Amazonka.Types
     requestBody,
     requestSign,
     requestPresign,
+    requestUnsigned,
 
     -- * Retries
     Retry (..),
@@ -426,7 +427,7 @@ instance ToLog Meta where
 
 -- | A signed 'ClientRequest' and associated metadata specific
 -- to the signing algorithm, tagged with the initial request type
--- to be able to obtain the associated response, 'Rs a'.
+-- to be able to obtain the associated response, @'AWSResponse' a@.
 data Signed a = Signed
   { signedMeta :: Meta,
     signedRequest :: ClientRequest
@@ -503,6 +504,20 @@ requestSign x = signerSign (_serviceSigner (_requestService x)) x
 
 requestPresign :: Seconds -> Algorithm a
 requestPresign ex x = signerPresign (_serviceSigner (_requestService x)) ex x
+
+-- | Create an unsigned 'ClientRequest'. You will almost never need to do this.
+requestUnsigned :: Request a -> Region -> ClientRequest
+requestUnsigned Request {..} r =
+  (newClientRequest end _serviceTimeout)
+    { Client.method = toBS _requestMethod,
+      Client.path = toBS (escapePath _requestPath),
+      Client.queryString = toBS _requestQuery,
+      Client.requestHeaders = _requestHeaders,
+      Client.requestBody = toRequestBody _requestBody
+    }
+  where
+    end = _serviceEndpoint r
+    Service {..} = _requestService
 
 -- | Specify how a request can be de/serialised.
 class AWSRequest a where

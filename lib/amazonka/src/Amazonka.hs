@@ -16,12 +16,17 @@ module Amazonka
     -- $usage
 
     -- * Authentication and Environment
-    Env.Env (..),
+    Env.Env' (..),
+    Env.Env,
+    Env.EnvNoAuth,
     Env.newEnv,
+    Env.newEnvNoAuth,
     Env.newEnvWith,
+    Env.envAuthMaybe,
 
     -- ** Service Configuration
     -- $service
+    Env.authenticate,
     Env.override,
     Env.configure,
     Env.within,
@@ -197,8 +202,8 @@ import qualified Network.HTTP.Client as Client
 --
 --     let env =
 --             discover
---                 { AWS.envLogger = logger
---                 , AWS.envRegion = AWS.Frankfurt
+--                 { AWS._envLogger = logger
+--                 , AWS._envRegion = AWS.Frankfurt
 --                 }
 --
 --     -- The payload (and hash) for the S3 object is retrieved from a 'FilePath',
@@ -207,7 +212,7 @@ import qualified Network.HTTP.Client as Client
 --     body <- AWS.chunkedFile AWS.defaultChunkSize "local\/path\/to\/object-payload"
 --
 --     -- We now run the 'AWS' computation with the overriden logger, performing the
---     -- 'PutObject' request. 'envRegion' or 'within' can be used to set the
+--     -- 'PutObject' request. '_envRegion' or 'within' can be used to set the
 --     -- remote AWS 'Region':
 --     AWS.runResourceT $
 --         AWS.send env (S3.newPutObject "bucket-name" "object-key" body)
@@ -527,22 +532,22 @@ presign ::
   m ClientRequest
 presign env time expires rq =
   Presign.presignWith
-    (appEndo (getDual (Env.envOverride env)))
-    (Env.envAuth env)
-    (Env.envRegion env)
+    (appEndo (getDual (Env._envOverride env)))
+    (runIdentity $ Env._envAuth env)
+    (Env._envRegion env)
     time
     expires
     rq
 
 -- | Retrieve the specified 'Dynamic' data.
 dynamic :: MonadIO m => Env -> EC2.Dynamic -> m ByteString
-dynamic env = EC2.dynamic (Env.envManager env)
+dynamic env = EC2.dynamic (Env._envManager env)
 
 -- | Retrieve the specified 'Metadata'.
 metadata :: MonadIO m => Env -> EC2.Metadata -> m ByteString
-metadata env = EC2.metadata (Env.envManager env)
+metadata env = EC2.metadata (Env._envManager env)
 
 -- | Retrieve the user data. Returns 'Nothing' if no user data is assigned
 -- to the instance.
 userdata :: MonadIO m => Env -> m (Maybe ByteString)
-userdata = EC2.userdata . Env.envManager
+userdata = EC2.userdata . Env._envManager

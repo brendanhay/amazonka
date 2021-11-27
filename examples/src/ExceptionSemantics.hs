@@ -27,7 +27,7 @@ exceptions ::
   IO ()
 exceptions r n = do
   lgr <- newLogger Info stdout
-  env <- newEnv Discover <&> set (field @"envLogger") lgr . within r
+  env <- newEnv Discover <&> set (field @"_envLogger") lgr . within r
 
   let scan = newScan n & field @"attributesToGet" ?~ "foo" :| []
 
